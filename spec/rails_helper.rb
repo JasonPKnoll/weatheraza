@@ -3,6 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'faker'
+require 'simplecov'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -17,6 +19,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -37,10 +40,11 @@ RSpec.configure do |config|
   end
 
   VCR.configure do |config|
-    config.cassette_library_dir = "fixtures/vcr_cassettes"
+    config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
     config.hook_into :webmock
+    config.filter_sensitive_data('<key>') {ENV['key']}
     config.filter_sensitive_data('<client_id>') {ENV['client_id']}
-    config.filter_sensitive_data('<client_secret>') {ENV['client_secret']}
+    config.filter_sensitive_data('<appid>') {ENV['appid']}
     config.configure_rspec_metadata!
   end
 end
