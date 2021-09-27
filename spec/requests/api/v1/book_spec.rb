@@ -59,7 +59,6 @@ describe 'BookController', type: :request do
         let(:location) { 'Denver' }
         let(:quantity) { 0 }
         it 'returns error when given quantity 0' do
-          require "pry"; binding.pry
           get '/api/v1/book-search', params: { location: location, quantity: quantity }
 
           res = JSON.parse(response.body, symbolize_names: true)
