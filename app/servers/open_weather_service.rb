@@ -1,14 +1,23 @@
 class OpenWeatherService
   class << self
     def conn
-      Faraday.new('https://api.openweathermap.org') do |req|
-        req.headers['appid'] = ENV['open_weather_key']
-      end
+      Faraday.new(
+        url: 'https://api.openweathermap.org',
+        params: {appid: ENV['open_weather_key']},
+        headers: {
+          'Content-Type' => 'application/json'
+        }
+      )
     end
 
-    def self.get_forecast(location)
-      response = conn.get("/api/v1/forecast?location=#{location}")
-      JSON.parse(response.body)
+    def get_forecast(lat, lon)
+      response = conn.get('/data/2.5/onecall') do |req|
+        req.params['lat'] = lat
+        req.params['lon'] = lon
+        # req.params['exclude'] = ['minutely']
+      end
+      JSON.parse(response.body, symbolize_names: true)
     end
+
   end
 end

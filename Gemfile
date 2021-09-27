@@ -12,6 +12,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'irb'
 gem 'fast_jsonapi'
 gem 'kaminari'
+gem 'faraday'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -22,7 +23,6 @@ group :development, :test do
   gem 'travis'
   gem 'rspec-rails'
   gem 'figaro'
-  gem 'faraday'
 end
 
 group :development do

@@ -1,18 +1,22 @@
 class MapQuestService
   class << self
     def conn
-      Faraday.new('http://www.mapquestapi.com') do |req|
-        req.headers['key'] = ENV['map_quest_key']
-      end
+      Faraday.new(
+        url: 'http://www.mapquestapi.com',
+        params: {key: ENV['map_quest_key']},
+        headers: {
+          'Content-Type' => 'application/json',
+        }
+      )
     end
 
-    def get_location(location)
-      JSON.parse(
-        conn.get("/geocoding/v1/#{location}").body,
-        symoblize_names: true
-      )
-      # response = conn.get("/geocoding/v1/")
-      # JSON.parse(response.body)
+    def get_geocoding(location)
+      response = conn.get('/geocoding/v1/address') do |req|
+        req.params['location'] = ("#{location}")
+        # req.params['exclude'] = ['minutely']
+      end
+      JSON.parse(response.body, symbolize_names: true)
     end
+
   end
 end
