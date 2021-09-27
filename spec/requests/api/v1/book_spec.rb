@@ -44,6 +44,31 @@ describe 'BookController', type: :request do
         end
       end
 
+      context 'when I give incorrect params' do
+        let(:location) { 'Denver' }
+        let(:quantity) { -5 }
+        it 'returns error when given quantity that is a negative number' do
+          get '/api/v1/book-search', params: { location: location, quantity: quantity }
+
+          res = JSON.parse(response.body, symbolize_names: true)
+
+          expect(res.keys).to include(:error)
+          expect(res.values).to include("invalid quantity")
+        end
+
+        let(:location) { 'Denver' }
+        let(:quantity) { 0 }
+        it 'returns error when given quantity 0' do
+          require "pry"; binding.pry
+          get '/api/v1/book-search', params: { location: location, quantity: quantity }
+
+          res = JSON.parse(response.body, symbolize_names: true)
+
+          expect(res.keys).to include(:error)
+          expect(res.values).to include("invalid quantity")
+        end
+      end
+
     end
 
   end
