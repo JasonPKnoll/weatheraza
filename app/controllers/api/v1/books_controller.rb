@@ -1,4 +1,5 @@
 class Api::V1::BooksController < ApplicationController
+  before_action :valid_params, only: [:index]
 
   def index
     books_formated = BooksFacade.get_books(params[:location], params[:quantity])
@@ -6,4 +7,12 @@ class Api::V1::BooksController < ApplicationController
     render json: books_formated
   end
 
+  private
+
+  def valid_params
+    if params[:quantity].to_i < 1
+      render json: {:error => 'invalid quantity'}
+    else
+    end
+  end
 end
