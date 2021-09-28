@@ -32,5 +32,39 @@ describe 'User Controller', type: :request do
 
     end
 
+    context 'when I give incorrect user params' do
+      let(:empty_email) do
+        {
+          password: 'hunter2',
+          password_confirmation: 'hunter2'
+        }
+      end
+      let(:mismatched_password) do
+        {
+          email: 'sample@email.com',
+          password: 'hunter2',
+          password_confirmation: 'hunter1'
+        }
+      end
+
+      it 'returns error and status when missing param' do
+        post '/api/v1/users', params: empty_email
+
+        user = JSON.parse(response.body, symbolize_names: true)
+
+        expect(user[:error]).to eq('missing paramater')
+        expect(response.status).to eq(400)
+      end
+
+      it 'returns error and status when passwords mismatch' do
+        post '/api/v1/users', params: mismatched_password
+
+        user = JSON.parse(response.body, symbolize_names: true)
+
+        expect(user[:error]).to eq('passwords do not match')
+        expect(response.status).to eq(400)
+      end
+    end
+
   end
 end
