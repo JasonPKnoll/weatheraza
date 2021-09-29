@@ -16,8 +16,6 @@ RSpec.describe MapQuestService, type: :service do
         subject(:geocode) { MapQuestService.get_geocoding(location) }
 
         let(:location) {'Denver+CO'}
-        # let(:city) { 'Denver' }
-        # let(:state) { 'CO' }
 
         it 'provides valid forcast has' do
           aggregate_failures 'test geocode' do
@@ -45,6 +43,51 @@ RSpec.describe MapQuestService, type: :service do
 
       end
     end  # end of get_geocoding
+
+    describe ':: get_direction' do
+      context 'when I provide valid coordinates', :vcr do
+        subject(:directions) { MapQuestService.get_directions(from, to) }
+
+        let(:from) { 'Denver, CO' }
+        let(:to) { 'Estes Park, CO' }
+
+        it 'provides valid route info' do
+          aggregate_failures 'test directions' do
+            expect(directions).to be_a(Hash)
+
+            expect(directions).to have_key(:route)
+
+            expect(directions[:route]).to have_key(:formattedTime)
+            expect(directions[:route][:formattedTime]).to be_a(String)
+            expect(directions[:route][:formattedTime].length).to eq(8)
+          end
+        end
+      end
+
+      context 'when I provide bad coordinates', :vcr do
+        subject(:directions) { MapQuestService.get_directions(from, to) }
+
+        let(:from) { 'Denver, CO' }
+        let(:to) { '214@!@$!@$' }
+
+        it 'provides invalid route information' do
+          aggregate_failures 'test directions' do
+            expect(directions).to be_a(Hash)
+
+            expect(directions).to have_key(:route)
+
+            expect(directions[:route]).to_not have_key(:formattedTime)
+
+            expect(directions[:route]).to have_key(:routeError)
+            expect(directions[:route][:routeError]).to be_a(Hash)
+            expect(directions[:route][:routeError]).to have_key(:errorCode)
+            expect(directions[:route][:routeError][:errorCode]).to be_a(Integer)
+          end
+        end
+
+      end
+
+    end # End of get_direction
 
   end # end of class methods
 end

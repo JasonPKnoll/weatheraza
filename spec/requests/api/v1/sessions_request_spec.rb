@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Sessions Controller', type: :request do
-  describe 'POST /api/v1/users', :vcr do
+  describe 'POST /api/v1/sessions', :vcr do
       let(:params) do
         {
           email: 'example@email.com',
@@ -18,7 +18,7 @@ describe 'Sessions Controller', type: :request do
       end
 
     it 'returns user with correct information' do
-      aggregate_failures 'test background' do
+      aggregate_failures 'test sessions' do
         new_user = create(:user)
 
         post '/api/v1/sessions', params: params.to_json, headers: headers
