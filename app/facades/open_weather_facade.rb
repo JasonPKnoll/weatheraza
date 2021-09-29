@@ -3,7 +3,8 @@ class OpenWeatherFacade
 
     def get_forecast(lat, lon)
       request = OpenWeatherService.get_forecast(lat, lon)
-      ForecastSerializer.format(request)
+      # ForecastSerializer.format(request)
+      Forecast.new(request)
     end
 
   end
