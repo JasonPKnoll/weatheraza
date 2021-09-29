@@ -20,8 +20,8 @@ class RoadTripSerializer
           end_city: params[:destination],
           travel_time: directions[:route][:formattedTime],
           weather_at_eta: {
-            temperature: forecast[:data][:attributes][:hourly_weather][x][:temperature],
-            conditions: forecast[:data][:attributes][:hourly_weather][x][:conditions],
+            temperature: forecast.hourly_weather[x][:temperature],
+            conditions: forecast.hourly_weather[x][:conditions],
           }
         }
       }

@@ -9,8 +9,9 @@ describe BooksSerializer, type: :serializer do
         books = OpenLibraryService.get_books(location, quantity)
         geocode = MapQuestFacade.get_geocoding(location)
         forecast = OpenWeatherFacade.get_forecast(geocode[:lat], geocode[:lon])
+        book_info = Books.new(books, forecast, location)
 
-        books_formated = BooksSerializer.format(books, forecast, location)
+        books_formated = JSON.parse(BooksSerializer.new(book_info).to_json, symbolize_names: true)
 
         expect(books_formated).to be_a(Hash)
 
