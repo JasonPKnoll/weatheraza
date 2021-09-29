@@ -11,7 +11,7 @@ class Api::V1::BooksController < ApplicationController
 
   def valid_params
     if params[:quantity].to_i < 1
-      render json: {:error => 'invalid quantity'}
+      render json: {:error => 'invalid quantity'}, status: 400
     else
     end
   end
