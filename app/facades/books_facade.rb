@@ -5,7 +5,8 @@ class BooksFacade
       books = OpenLibraryService.get_books(location, quantity)
       geocode = MapQuestFacade.get_geocoding(location)
       forecast = OpenWeatherFacade.get_forecast(geocode[:lat], geocode[:lon])
-      BooksSerializer.format(books, forecast, location)
+      Books.new(books, forecast, location)
+      # BooksSerializer.format(books, forecast, location)
     end
 
   end
