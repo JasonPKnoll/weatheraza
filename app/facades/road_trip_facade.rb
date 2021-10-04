@@ -5,7 +5,8 @@ class RoadTripFacade
       geocode = MapQuestFacade.get_geocoding(params[:destination])
       forecast = OpenWeatherFacade.get_forecast(geocode[:lat], geocode[:lon])
 
-      RoadTripSerializer.format(directions, forecast, params)
+      # RoadTripSerializer.format(directions, forecast, params)
+      RoadTrip.new(directions, forecast, params)
     end
   end
 end
