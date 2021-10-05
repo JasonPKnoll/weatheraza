@@ -90,5 +90,23 @@ describe 'ForecastController', type: :request do
 
     end
 
+    context 'when I give no location params' do
+      let(:location) { ' ' }
+
+
+      it 'returns error and status 400' do
+        aggregate_failures 'test forecast' do
+          get '/api/v1/forecast', params: { location: location }
+
+          res = JSON.parse(response.body, symbolize_names: true)
+
+          expect(res).to have_key(:error)
+          expect(res[:error]).to eq('no location given')
+          expect(response.status).to eq(400)
+        end
+      end
+
+    end
+
   end
 end
