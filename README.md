@@ -237,7 +237,72 @@ GET /api/v1/book-search?location=denver,co&quantity=5
 ```
 #### Response
 ```
-
+{
+    "data": {
+        "id": null,
+        "type": "books",
+        "attributes": {
+            "destination": "denver,co",
+            "forecast": {
+                "summary": "clear sky",
+                "temperature": 59.99
+            },
+            "total_books_found": 35991,
+            "books": [
+                {
+                    "isbn": [
+                        "9780762507849",
+                        "0762507845"
+                    ],
+                    "title": "Denver, Co",
+                    "publisher": [
+                        "Universal Map Enterprises"
+                    ]
+                },
+                {
+                    "isbn": [
+                        "1427401683",
+                        "9781427401687"
+                    ],
+                    "title": "University of Denver Co 2007",
+                    "publisher": [
+                        "College Prowler"
+                    ]
+                },
+                {
+                    "isbn": [
+                        "9780762557363",
+                        "0762557362"
+                    ],
+                    "title": "Denver Co Deluxe Flip Map",
+                    "publisher": [
+                        "Universal Map Enterprises"
+                    ]
+                },
+                {
+                    "isbn": [
+                        "9780883183663",
+                        "0883183668"
+                    ],
+                    "title": "Photovoltaic safety, Denver, CO, 1988",
+                    "publisher": [
+                        "American Institute of Physics"
+                    ]
+                },
+                {
+                    "isbn": [
+                        "9812582622",
+                        "9789812582621"
+                    ],
+                    "title": "Insight Fleximap Denver, CO (Insight Fleximaps)",
+                    "publisher": [
+                        "American Map Corporation"
+                    ]
+                }
+            ]
+        }
+    }
+}
 ```
 
 <hr>
