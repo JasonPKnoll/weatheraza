@@ -82,7 +82,123 @@ Accept: application/json
 ```
 #### 200 Response
 ```
-
+{
+    "data": {
+        "id": null,
+        "type": "forecast",
+        "attributes": {
+            "current_weather": {
+                "datetime": "2021-10-06T07:48:22.000Z",
+                "sunrise": "2021-10-06T13:01:10.000Z",
+                "sunset": "2021-10-07T00:34:27.000Z",
+                "temperature": 59.92,
+                "feels_like": 57.4,
+                "humidity": 38,
+                "uvi": 0,
+                "visibility": 10000,
+                "conditions": "clear sky",
+                "icon": "01n"
+            },
+            "daily_weather": [
+                {
+                    "date": "2021-10-06T18:00:00.000Z",
+                    "sunrise": "2021-10-06T13:01:10.000Z",
+                    "sunset": "2021-10-07T00:34:27.000Z",
+                    "max_temp": 79.48,
+                    "min_temp": 59.4,
+                    "conditions": "broken clouds",
+                    "icon": "04d"
+                },
+                {
+                    "date": "2021-10-07T18:00:00.000Z",
+                    "sunrise": "2021-10-07T13:02:10.000Z",
+                    "sunset": "2021-10-08T00:32:52.000Z",
+                    "max_temp": 79.45,
+                    "min_temp": 60.17,
+                    "conditions": "scattered clouds",
+                    "icon": "03d"
+                },
+                {
+                    "date": "2021-10-08T18:00:00.000Z",
+                    "sunrise": "2021-10-08T13:03:09.000Z",
+                    "sunset": "2021-10-09T00:31:18.000Z",
+                    "max_temp": 78.55,
+                    "min_temp": 61.09,
+                    "conditions": "overcast clouds",
+                    "icon": "04d"
+                },
+                {
+                    "date": "2021-10-09T18:00:00.000Z",
+                    "sunrise": "2021-10-09T13:04:09.000Z",
+                    "sunset": "2021-10-10T00:29:45.000Z",
+                    "max_temp": 74.28,
+                    "min_temp": 58.44,
+                    "conditions": "light rain",
+                    "icon": "10d"
+                },
+                {
+                    "date": "2021-10-10T18:00:00.000Z",
+                    "sunrise": "2021-10-10T13:05:10.000Z",
+                    "sunset": "2021-10-11T00:28:12.000Z",
+                    "max_temp": 64.89,
+                    "min_temp": 51.1,
+                    "conditions": "light rain",
+                    "icon": "10d"
+                }
+            ],
+            "hourly_weather": [
+                {
+                    "time": "07:00",
+                    "temperature": 60.82,
+                    "conditions": "clear sky",
+                    "icon": "01n"
+                },
+                {
+                    "time": "08:00",
+                    "temperature": 59.92,
+                    "conditions": "clear sky",
+                    "icon": "01n"
+                },
+                {
+                    "time": "09:00",
+                    "temperature": 60.49,
+                    "conditions": "clear sky",
+                    "icon": "01n"
+                },
+                {
+                    "time": "10:00",
+                    "temperature": 60.55,
+                    "conditions": "clear sky",
+                    "icon": "01n"
+                },
+                {
+                    "time": "11:00",
+                    "temperature": 60.33,
+                    "conditions": "clear sky",
+                    "icon": "01n"
+                },
+                {
+                    "time": "12:00",
+                    "temperature": 59.9,
+                    "conditions": "few clouds",
+                    "icon": "02n"
+                },
+                {
+                    "time": "13:00",
+                    "temperature": 59.4,
+                    "conditions": "overcast clouds",
+                    "icon": "04n"
+                },
+                {
+                    "time": "14:00",
+                    "temperature": 60.49,
+                    "conditions": "overcast clouds",
+                    "icon": "04d"
+                }
+            ]
+        }
+    }
+}
 ```
 
 <hr>
@@ -96,7 +212,20 @@ Accept: application/json
 ```
 #### 200 Response
 ```
-
+{
+    "data": {
+        "id": null,
+        "type": "image",
+        "attributes": {
+            "image": {
+                "full_image": "https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNjI5Mzh8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkMlMjBDT3xlbnwxfHx8fDE2MzM1MDY1OTE&ixlib=rb-1.2.1&q=85",
+                "regular_image": "https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjI5Mzh8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkMlMjBDT3xlbnwxfHx8fDE2MzM1MDY1OTE&ixlib=rb-1.2.1&q=80&w=1080",
+                "description": "Night Time Downtown Denver",
+                "author": "Ryan De Hamer"
+            }
+        }
+    }
+}
 ```
 
 <hr>
@@ -126,8 +255,18 @@ Accept: application/json
   "password_confirmation": "password"
 }
 ```
-#### 200 Response
+#### 201 Response
 ```
+{
+    "data": {
+        "id": "12",
+        "type": "user",
+        "attributes": {
+            "email": "sample@email.com",
+            "api_key": "3gqwatyJXtcq1ByajjdjkAtt"
+        }
+    }
+}
 ```
 <hr>
 
@@ -145,6 +284,16 @@ Accept: application/json
 ```
 #### 200 Response
 ```
+{
+    "data": {
+        "id": "12",
+        "type": "user",
+        "attributes": {
+            "email": "sample@email.com",
+            "api_key": "3gqwatyJXtcq1ByajjdjkAtt"
+        }
+    }
+}
 
 ```
 
@@ -162,10 +311,24 @@ body:
 {
   "origin": "Denver,CO",
   "destination": "Pueblo,CO",
-  "api_key": "4DA6ZiJNWfctA4CDHaR4qAtt"
+  "api_key": "3gqwatyJXtcq1ByajjdjkAtt"
 }
 ```
-#### 200 Response
+#### 201 Response
 ```
-
+{
+    "data": {
+        "id": null,
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "Denver,CO",
+            "end_city": "Pueblo,CO",
+            "travel_time": "01:44:22",
+            "weather_at_eta": {
+                "temperature": 56.7,
+                "conditions": "clear sky"
+            }
+        }
+    }
+}
 ```
