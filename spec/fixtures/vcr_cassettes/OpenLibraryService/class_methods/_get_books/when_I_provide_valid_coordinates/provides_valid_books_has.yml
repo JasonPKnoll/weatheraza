@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.17.4
+      - Faraday v0.17.5
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx/1.18.0 (Ubuntu)
       Date:
-      - Wed, 29 Sep 2021 07:19:16 GMT
+      - Sat, 19 Mar 2022 03:05:40 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,7 +35,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '86400'
       X-Ol-Stats:
-      - '"SR 1 0.103 TT 0 0.104"'
+      - '"SR 1 0.172 TT 0 0.175"'
       Referrer-Policy:
       - no-referrer-when-downgrade
     body:
@@ -48,18 +48,6 @@ http_interactions:
             "docs": [
                 {
                     "key": "/works/OL7264529W",
-                    "text": [
-                        "/works/OL7264529W",
-                        "Patent medicine picture",
-                        "Patent medicine picture.",
-                        "OL5597373M",
-                        "68003170",
-                        "printed by the Tombstone Epitaph",
-                        "OL2118153A",
-                        "Kay Devner",
-                        "Catalogs",
-                        "Medicine bottles"
-                    ],
                     "type": "work",
                     "seed": [
                         "/books/OL5597373M",
@@ -82,6 +70,7 @@ http_interactions:
                         1968
                     ],
                     "first_publish_year": 1968,
+                    "number_of_pages_median": 106,
                     "lccn": [
                         "68003170"
                     ],
@@ -119,7 +108,7 @@ http_interactions:
                         "Catalogs",
                         "Medicine bottles"
                     ],
-                    "_version_": 1700718605505658880,
+                    "_version_": 1715095544163991554,
                     "lcc_sort": "NK-5440.00000000.B6 D48",
                     "author_facet": [
                         "OL2118153A Kay Devner"
@@ -132,26 +121,6 @@ http_interactions:
                 },
                 {
                     "key": "/works/OL12897240W",
-                    "text": [
-                        "/works/OL12897240W",
-                        "Proceedings of 2002 IEEE Workshop on Speech Synthesis",
-                        "11-13 September, 2002, Santa Monica, CA",
-                        "OL19818688M",
-                        "sponsored by IEEE Signal Processing Society.",
-                        "2002100403",
-                        "IEEE Signal Processing Society.",
-                        "International Conference on Spoken Language Processing (2002 : Devner, Colo.)",
-                        "9780780373969",
-                        "9780780373952",
-                        "0780373960",
-                        "0780373952",
-                        "IEEE",
-                        "OL5832258A",
-                        "IEEE Workshop on Speech Synthesis (2002 Santa Monica, Calif.).",
-                        "Congresses",
-                        "Speech synthesis",
-                        "Speech processing systems"
-                    ],
                     "type": "work",
                     "seed": [
                         "/books/OL19818688M",
@@ -175,6 +144,7 @@ http_interactions:
                         2002
                     ],
                     "first_publish_year": 2002,
+                    "number_of_pages_median": 236,
                     "lccn": [
                         "2002100403"
                     ],
@@ -182,18 +152,18 @@ http_interactions:
                         "Piscataway, N.J"
                     ],
                     "contributor": [
-                        "IEEE Signal Processing Society.",
-                        "International Conference on Spoken Language Processing (2002 : Devner, Colo.)"
+                        "International Conference on Spoken Language Processing (2002 : Devner, Colo.)",
+                        "IEEE Signal Processing Society."
                     ],
                     "lcc": [
                         "TK-7895.00000000.S65 I34 2002",
                         "TK-7895.00000000.S65 I143 2002"
                     ],
                     "isbn": [
-                        "9780780373969",
-                        "9780780373952",
+                        "0780373952",
                         "0780373960",
-                        "0780373952"
+                        "9780780373952",
+                        "9780780373969"
                     ],
                     "last_modified_i": 1607192123,
                     "ebook_count_i": 0,
@@ -222,7 +192,7 @@ http_interactions:
                         "Speech processing systems",
                         "Speech synthesis"
                     ],
-                    "_version_": 1700697797625380864,
+                    "_version_": 1715076457617686529,
                     "lcc_sort": "TK-7895.00000000.S65 I143 2002",
                     "author_facet": [
                         "OL5832258A IEEE Workshop on Speech Synthesis (2002 Santa Monica, Calif.)."
@@ -238,5 +208,5 @@ http_interactions:
             "q": "Devner",
             "offset": null
         }
-  recorded_at: Wed, 29 Sep 2021 07:19:16 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 19 Mar 2022 03:05:40 GMT
+recorded_with: VCR 6.1.0

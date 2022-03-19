@@ -18,7 +18,7 @@ describe Forecast, type: :poro do
         expect(forecast.current_weather[:temperature]).to be_a(Float)
         expect(forecast.current_weather[:feels_like]).to be_a(Float)
         expect(forecast.current_weather[:humidity]).to be_a(Integer)
-        expect(forecast.current_weather[:uvi]).to be_a(Float)
+        expect(forecast.current_weather[:uvi]).to be_a(Integer)
         expect(forecast.current_weather[:visibility]).to be_a(Integer)
         expect(forecast.current_weather[:conditions]).to be_a(String)
         expect(forecast.current_weather[:icon]).to be_a(String)

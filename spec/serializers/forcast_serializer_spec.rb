@@ -37,7 +37,7 @@ require 'rails_helper'
             expect(current_weather).to have_key(:humidity)
             expect(current_weather[:humidity]).to be_a(Integer)
             expect(current_weather).to have_key(:uvi)
-            expect(current_weather[:uvi]).to be_a(Float)
+            expect(current_weather[:uvi]).to be_a(Integer)
             expect(current_weather).to have_key(:visibility)
             expect(current_weather[:visibility]).to be_a(Integer)
             expect(current_weather).to have_key(:conditions)
